@@ -12,6 +12,7 @@ package feathers.media
 	import feathers.events.MediaPlayerEventType;
 	import feathers.media.SeekSlider;
 	import feathers.skins.IStyleProvider;
+	import feathers.media.VideoPlayer;
 
 	import starling.events.Event;
 
@@ -223,7 +224,7 @@ package feathers.media
 			{
 				return;
 			}
-			this._mediaPlayer.seek(this._value);
+			this._mediaPlayer.seekSlider_change(this._value);
 		}
 
 		/**
@@ -249,7 +250,7 @@ package feathers.media
 		 */
 		protected function mediaPlayer_totalTimeChangeHandler(event:Event):void
 		{
-			this.maximum = this._mediaPlayer.totalTime;
+			this.maximum = this._mediaPlayer.totalTime + this._mediaPlayer.timePlayed;
 		}
 		
 	}
